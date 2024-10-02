@@ -1,0 +1,8 @@
+within OpalRT.Electrical.PartialModel;
+partial model OverExcitationLimiter
+  parameter Real partType = 7;
+  Modelica.Blocks.Interfaces.RealInput EFD annotation(Placement(visible = true, transformation(origin = {-100, 64}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-98, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Modelica.Blocks.Interfaces.RealInput XADIFD annotation(Placement(visible = true, transformation(origin = {-100, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-98, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Modelica.Blocks.Interfaces.RealOutput VOEL annotation(Placement(visible = true, transformation(origin = {100, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {104, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  annotation(Icon(coordinateSystem(preserveAspectRatio = false), graphics={  Rectangle(origin = {-0.123457, -0.123457}, extent = {{-100.123, 99.8765}, {100.123, -99.8765}}), Text(origin = {-57.8346, 91.3247}, extent = {{-26.1654, -21.3247}, {11.8346, -43.3247}}, lineColor = {0, 0, 0}, textString = "EFD"), Text(origin = {-46.1949, -22.7981}, extent = {{-35.8051, -25.2019}, {16.1949, -51.2019}}, lineColor = {0, 0, 0}, textString = "XADIFD"), Text(origin = {78.7883, 35.2633}, extent = {{-24.7883, -23.2633}, {11.2117, -47.2633}}, lineColor = {0, 0, 0}, textString = "VOEL"), Text(origin = {11.2577, 43.6011}, extent = {{-47.2577, -17.6011}, {35.4119, -58.5663}}, textString = "%name", lineColor = {28, 108, 200})}), Diagram(coordinateSystem(preserveAspectRatio = false)));
+end OverExcitationLimiter;

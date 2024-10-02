@@ -1,0 +1,7 @@
+NegativeCurrentLogic
+ExciterStabilizingBlock
+Rectifier2
+rectifierFunction2
+CurrentRegulatorAndRotatingExciter
+VoltageRegulator
+Selector

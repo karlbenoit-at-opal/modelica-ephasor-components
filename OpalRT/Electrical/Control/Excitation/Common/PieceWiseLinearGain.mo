@@ -1,0 +1,11 @@
+within OpalRT.Electrical.Control.Excitation.Common;
+block PieceWiseLinearGain "Nonlinear gain for excitation system stabilizer"
+  parameter Real KF = 1;
+  parameter Real KN = 0.5;
+  parameter Real EFDN = 1.3;
+  Modelica.Blocks.Interfaces.RealInput EFD annotation(Placement(visible = true, transformation(origin = {-100, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Modelica.Blocks.Interfaces.RealOutput VN annotation(Placement(visible = true, transformation(origin = {100, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+equation
+  VN = if EFD <= EFDN then KF * EFD else KF * EFDN + KN * (EFD - EFDN);
+  annotation(Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {2, 2})), Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {2, 2}), graphics={  Rectangle(origin = {0.271003, -0.135501}, extent = {{-100, 100.136}, {99.729, -99.5935}}), Text(origin = {-64.7681, -59.3189}, extent = {{-21.14, 12.87}, {21.14, -12.87}}, textString = "EFD"), Text(origin = {65.8, -58.83}, extent = {{-21.14, 12.87}, {21.14, -12.87}}, textString = "VN"), Line(origin = {-64.5, 25.47}, points = {{0, 65.5827}, {0, -65.0407}}, arrow = {Arrow.Filled, Arrow.None}), Line(origin = {-42.332, 21.6218}, points = {{113.008, -55.8265}, {-26.2873, -55.8266}}, arrow = {Arrow.Filled, Arrow.None}), Line(origin = {-1.65, 12.98}, points = {{-62.8473, -47.1291}, {-11.3568, 20.6215}, {56.6649, 46.9088}}), Text(origin = {-80.8154, 78.296}, extent = {{-11.9259, 12.599}, {11.38, -7.18}}, textString = "VN"), Text(origin = {74.6899, -26.365}, extent = {{-21.14, 12.87}, {11.3839, -7.17894}}, textString = "EFD"), Text(origin = {-20.7071, -48.861}, extent = {{-11.93, 12.6}, {23.8461, -6.36699}}, textString = "EFDN"), Line(origin = {-13.01, -0.14}, points = {{0, 34.0108}, {0, -34.0108}}, pattern = LinePattern.Dash), Text(origin = {-58.1631, 5.82678}, extent = {{2.70415, 11.245}, {23.85, -6.37}}, textString = "KF"), Text(origin = {9.53797, 55.904}, extent = {{2.7, 11.24}, {23.85, -6.37}}, textString = "KN")}));
+end PieceWiseLinearGain;

@@ -1,0 +1,30 @@
+within OpalRT.Electrical.Machine.SynchronousMachine.Internal;
+function updateDerivativeEquations
+  input Real slip;
+  input Real Te;
+  input Real Tm;
+  input Real efd;
+  input Real ifd;
+  input Real id1;
+  input Real iq1;
+  input Real iq2;
+  input Real wR;
+  input Real H;
+  input Real Rd1;
+  input Real Rq1;
+  input Real Rq2;
+  input Real Rfd;
+  output Real der_delta;
+  output Real der_slip;
+  output Real der_sfd;
+  output Real der_sd1;
+  output Real der_sq1;
+  output Real der_sq2;
+algorithm
+  der_delta := wR * slip;
+  der_slip := 0.5 / H * (Te + Tm);
+  der_sfd := wR * (efd - Rfd * ifd);
+  der_sd1 := -wR * Rd1 * id1;
+  der_sq1 := -wR * Rq1 * iq1;
+  der_sq2 := -wR * Rq2 * iq2;
+end updateDerivativeEquations;
